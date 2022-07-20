@@ -1,3 +1,7 @@
+let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
+
+tg.expand(); //расширяем на все окно  
+
 
 function menuButton() {
 	if (tg.MainButton.isActive){ //если кнопка показана 
