@@ -18,8 +18,8 @@
 
    <script type="text/javascript">
    	let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
+	tg.ThemeParams.setParams({"color": "#E0FFFF"}); //меняем цвет
    	tg.expand(); //расширяем на все окно 
-   	tg.ThemeParams.bg_color = 'black'
 
    	let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
 	btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
