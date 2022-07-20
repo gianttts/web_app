@@ -1,75 +1,15 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>web app</title>
-
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-	<script type="text/javascript">
-   	let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
-   	tg.expand(); //расширяем на все окно 
-
-
-   	let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
-	btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-		if (tg.MainButton.isActive){ //если кнопка показана 
-			tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
-			tg.MainButton.disable() //скрываем кнопку 
-		}
-		else{ //иначе
-			tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
-			tg.MainButton.enable() //показываем 
-		}
-	});
-	Telegram.WebApp.onEvent('mainButtonClicked', function(){
-		tg.sendData("some string that we need to send"); 
-		//при клике на основную кнопку отправляем данные в строковом виде
-	});
-   </script>
-   <style type="text/css">
-   	body{
-		color: var(--tg-theme-text-color);
-		background: var(--tg-theme-bg-color);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		font-size: 18px;
-	}
-
-	.hint{
-		color: var(--tg-theme-hint-color);
-	}
-
-	.link{
-		color: var(--tg-theme-link-color);
-	}
-
-	.button{
-		background: var(--tg-theme-button-color);
-		color: var(--tg-theme-button-text-color);
-		border: none;
-		font-size: 18px;
-	}
-
-	.button:not(:last-child){
-		margin-bottom: 20px
-	}
-
-	#usercard{
-		text-align: center;
-	}
-   </style>
+	<title>Redly</title>
+	<script src="js/app.js"></script>
 </head>
 <body>
-   <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
-   </div>
-   <p>Just text</p> <!--Просто текст для проверки-->
-   <a class="link" href="https://mihailgok.ru">Link</a> <!--Просто ссылка для проверки-->
-   <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
-   <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
-   <button id="btnED" class="button">Enable/Disable Main Button</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
-   <button id="btnED">Button</button>
+	<button id="btn" class="button" onclick="menuButton();">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
+
 </body>
 </html>
+
