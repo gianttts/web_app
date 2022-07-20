@@ -3,14 +3,39 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style type="text/css" src='css/app.css'></style>
+	<title>web app</title>
+
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
-	<script type="text/javascript" src='js/app.js'></script>
-	<title>Web</title>
 </head>
 <body>
-	<h1 class='text'>Im here !</h1>
-	<button class='btn '>Hello world</button>
+   <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
+   </div>
+   <p>Just text</p> <!--Просто текст для проверки-->
+   <a class="link" href="https://mihailgok.ru">Link</a> <!--Просто ссылка для проверки-->
+   <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
+   <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
+   <button id="btnED" class="button">Enable/Disable Main Button</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
 
+   <script type="text/javascript">
+   	let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
+   	tg.expand(); //расширяем на все окно 
+   	tg.ThemeParams.bg_color = 'black'
+
+   	let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
+	btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
+		if (tg.MainButton.isActive){ //если кнопка показана 
+			tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
+			tg.MainButton.disable() //скрываем кнопку 
+		}
+		else{ //иначе
+			tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
+			tg.MainButton.enable() //показываем 
+		}
+	});
+	Telegram.WebApp.onEvent('mainButtonClicked', function(){
+		tg.sendData("some string that we need to send"); 
+		//при клике на основную кнопку отправляем данные в строковом виде
+	});
+   </script>
 </body>
 </html>
